@@ -1,54 +1,34 @@
-const title = "Bonjour la team"
-const style= {color: '#1c1d1f', backgroundColor: 'lightgreen'}
-const showTitle = true
-const todos = ['Faire les courses', 'Acheter du pain', 'Aller chez le coiffeur']
-
+import { useState } from "react"
 
 function App() {
 
-  const handleClick = () => {
+  const [person, setPerson] = useState({
+    firstname: 'John',
+    lastname: 'Doe',
+    age: 25
+  })
 
-    alert('Hello World!')
+  // ILLEGAL - React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render
+  // if(person.age < 19) {
+    const [count, setCount] = useState(0) 
+  // }
+
+  const incrementAge = () => {
+    setPerson(person => ({...person, age: person.age + 1}))
+  }
+
+  const incrementCount = () => {
+    setCount(count + 1)
   }
   
   return <>
-
-      { showTitle ? 
-        <Title onClick={handleClick} fontSize="16px" hidden>
-          {title}
-        </Title> : 
-        <p>Titre non officiel</p>
-      }
-
-      <input type="text" />
-
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Suspendisse nec ligula nec turpis tincidunt tincidunt.
-      </p>
-
-      <ul>
-        {todos.map((todo, index) => <li key={index}>{todo}</li>)}
-      </ul>
-      
+      <p>Age de {person.firstname} : {person.age} </p>
+      <button onClick={incrementAge}>Gagner une année</button>
+      <button onClick={incrementCount}>Incrémenter {count}</button>
     </>
 
 }
 
-function Title ({ fontSize, onClick, children, hidden }) {
-  const combinedStyle = {...style, fontSize : fontSize}
-  
-  const props = {
-    style: combinedStyle,
-    id: "title",
-    className: "title"
-  }
 
-  // if (hidden) {
-  //   return null;
-  // }
-
-  return <h1 onClick={onClick} {...props} >{children}</h1>
-}
 
 export default App
