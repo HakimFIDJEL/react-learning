@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { Input } from "./chap7/components/forms/Input"
-import { Checkbox } from "./chap7/components/forms/Checkbox"
+import { Input } from "./components/forms/Input"
+import { Checkbox } from "./components/forms/Checkbox"
 import { useEffect } from "react"
 
 /* ======== Le hook useEffect ======== */
