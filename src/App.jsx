@@ -1,16 +1,12 @@
+import React from 'react'
 
-
-/* ========  ======== */
-
-
+/* ======== TP : Blog avec React ======== */
 
 
 function App() {
 
-  return <>
-  
-  </>
 }
+
 
 
 export default App
