@@ -1,26 +1,20 @@
 import { useId } from "react"
 
-export function Input({placeholder, value, onChange, label, type="text", inputRef, labelRef, wrapperRef}) {
+export function Input({type, label, ...props}) {
     
     const id = useId()  
+    const InputComponent = type === 'textarea' ? 'textarea' : 'input'
 
-    return <div ref={wrapperRef}>
+    return <div>
 
-        <label 
-            ref={labelRef} 
-            htmlFor={id} 
-            className="form-label">
-                {label}
-        </label>
+        {label && <label htmlFor={id} className="form-label">{label}</label>}
 
-        <input  
+
+        <InputComponent  
             type={type}
             className="form-control"
-            value={value}
-            placeholder={placeholder}
-            onChange={(e) => onChange(e.target.value)}
-            id={id}  
-            ref={inputRef}
+            id={id}
+            {...props}
         />
 
     </div>
