@@ -40,7 +40,7 @@ function Title ({ fontSize, onClick, children, hidden }) {
   
   const props = {
     style: combinedStyle,
-    id: "title",
+    id: "title",  
     className: "title"
   }
 
